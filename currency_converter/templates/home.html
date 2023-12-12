@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <title>{% block  title %}home {%endblock%} - currency converter</title>
+    <style>
+        #navBar{list-style-type: none;}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul id="navBar">
+        <li><a href="{% url 'homePage'%}">home</a></li>
+        <li><a href="{%url "Currency"%}">currency converter</a></li>
+    </ul>
+    </nav>
+    {%block content%}
+    <h1>welcom</h1>
+    {%endblock%}
+    <p>&copy; 2023 mesteranas sites</p>
+</body>
+</html>

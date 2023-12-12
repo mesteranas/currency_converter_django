@@ -1,0 +1,28 @@
+{% extends "home.html" %}
+{% block  title%}currency converter {%endblock%}
+{% block content%}
+<h1>currency converter</h1>
+<form method="post" action="{% url "Currency"%}">
+    {%csrf_token%}
+    <label for="From">From</label>
+    <select name="From" id="From" required>
+        {% for code,name in currencies%}
+        <option value="{{code}}">{{name}}</option>
+        {% endfor%}
+    </select>
+    <br>
+    <label for="To">to</label>
+    <select name="To" id="To" required>
+        {% for code,name in currencies%}
+        <option value="{{code}}">{{name}}</option>
+        {% endfor%}
+    </select>
+    <br>
+    <label for="Value">Value</label>
+    <input type="number" min="1" max="1000000000000" value="1" name="Value" id="Value" required>
+    <br>
+    <button type="submit">convert</button>
+</form>
+<label for="result">result</label>
+<input type="text" readonly id="result" value="{{Result}}">
+{%endblock%}
